@@ -1,40 +1,51 @@
 import os
 import math
+import re
+
 while True:
     while True:
         Ax = input("Valor X do ponto A: ")
-        if Ax.isnumeric() or Ax[0] == "-":
+        x = re.findall("[a-zA-Z]", Ax)
+        if x:
+            print('Valor invalido!')
+            os.system('cls')
+        else:
             ax = int(Ax)
             os.system('cls')
             break
-        else:
-            print("digite um valor válido")
+
     while True:
         Ay = input("Valor Y do ponto A: ")
-        if Ay.isnumeric() or Ay[0] == "-":
+        x = re.findall("[a-zA-Z]", Ay)
+        if x:
+            print('Valor invalido!')
+            os.system('cls')
+        else:
             ay = int(Ay)
             os.system('cls')
             break
-        else:
-            print("digite um valor válido")
 
     while True:
         Bx = input("Valor X do ponto B: ")
-        if Bx.isnumeric() or Bx[0] == "-":
+        x = re.findall("[a-zA-Z]", Bx)
+        if x:
+            print('Valor invalido!')
+            os.system('cls')
+        else:
             bx = int(Bx)
             os.system('cls')
             break
-        else:
-            print("digite um valor válido")
 
     while True:
         By = input("Valor Y do ponto B: ")
-        if By.isnumeric() or By[0] == "-":
+        x = re.findall("[a-zA-Z]", By)
+        if x:
+            print('Valor invalido!')
+            os.system('cls')
+        else:
             by = int(By)
             os.system('cls')
             break
-        else:
-            print("digite um valor válido")
 
     X = ax - bx
     Y = ay - by
@@ -42,6 +53,7 @@ while True:
     Y = Y**2
 
     Distance = X + Y
+
     try:
         Distance = math.sqrt(Distance)
         print(f"A distancia entre ({Ax},{Bx}) e ({Bx},{By}) é ({Distance}), ou (√{Distance*Distance})")
