@@ -2,6 +2,8 @@ import os
 import math
 import re
 from pylab import *
+import matplotlib.pyplot as plt
+
 
 while True:
     while True:
@@ -73,11 +75,15 @@ while True:
     try:
         Distance = math.sqrt(Distance)
         print(f"A distancia entre ({Ax},{Ay}) e ({Bx},{By}) é ({Distance}), ou (√{Distance*Distance})")
-        plot([int(cAx), int(cAy)], [int(cBx), int(cBy)], marker='o')
-        title(f'distance = {Distance}')
-        xlabel(f'A = {int(cAx), int(cAy)} B = {int(cBx), int(cBy)}')
-        show()
-        input("pressione qualquer tecla para outro calculo")
+        def on_close(event):
+            print('Closed Figure!')
+
+        fig = plt.figure()
+        fig.canvas.mpl_connect('close_event', on_close)
+        plt.xlabel(f'A = {int(cAx), int(cAy)} B = {int(cBx), int(cBy)}')
+        plt.title(f'distance = {Distance}')
+        plt.plot([int(cAx), int(cAy)], [int(cBx), int(cBy)], marker='o')
+        plt.show()
         os.system('cls')
         
     except:
