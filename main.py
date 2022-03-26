@@ -1,52 +1,71 @@
 import os
 import math
 import re
+from pylab import *
+from matplotlib.widgets import Button
 
 while True:
     while True:
-        Ax = input("Valor X do ponto A: ")
+        Ax= input("Valor X do ponto A: ")
+        cAx = Ax
         x = re.findall("[a-zA-Z]", Ax)
         if x:
+            os.system('cls')
             print('Valor invalido!')
-            os.system('cls')
         else:
-            ax = int(Ax)
-            os.system('cls')
-            break
-
+            try:
+                ax = int(Ax)
+                os.system('cls')
+                break
+            except:
+                print('Valor invalido!')
     while True:
-        Ay = input("Valor Y do ponto A: ")
+        Ay= input("Valor Y do ponto A: ")
+        cAy = Ay
         x = re.findall("[a-zA-Z]", Ay)
         if x:
             print('Valor invalido!')
             os.system('cls')
         else:
-            ay = int(Ay)
-            os.system('cls')
-            break
+            try:
+                ay = int(Ay)
+                os.system('cls')
+                break
+            except:
+                print('Valor invalido!')
 
     while True:
         Bx = input("Valor X do ponto B: ")
+        cBx = Bx
         x = re.findall("[a-zA-Z]", Bx)
         if x:
             print('Valor invalido!')
             os.system('cls')
         else:
-            bx = int(Bx)
-            os.system('cls')
-            break
+            try:
+                bx = int(Bx)
+                os.system('cls')
+                break
+            except:
+                print('Valor invalido!')
 
     while True:
-        By = input("Valor Y do ponto B: ")
+        By= input("Valor Y do ponto B: ")
+        cBy = By
         x = re.findall("[a-zA-Z]", By)
         if x:
             print('Valor invalido!')
             os.system('cls')
         else:
-            by = int(By)
-            os.system('cls')
-            break
+            try:
+                by = int(By)
+                os.system('cls')
+                break
+            except:
+                print('Valor invalido!')
 
+
+    
     X = ax - bx
     Y = ay - by
     X = X**2
@@ -54,11 +73,17 @@ while True:
 
     Distance = X + Y
 
+
     try:
         Distance = math.sqrt(Distance)
-        print(f"A distancia entre ({Ax},{Bx}) e ({Bx},{By}) é ({Distance}), ou (√{Distance*Distance})")
+        print(f"A distancia entre ({Ax},{Ay}) e ({Bx},{By}) é ({Distance}), ou (√{Distance*Distance})")
+        plot([int(cAx), int(cAy)], [int(cBx), int(cBy)], marker='o')
+        title(f'distance = {Distance}')
+        xlabel(f'A = {int(cAx), int(cAy)} B = {int(cBx), int(cBy)}')
+        show()
         input("pressione qualquer tecla para outro calculo")
         os.system('cls')
+        
     except:
         # os.system('cls')
         print(f"Falha ao tentar calcular, tente novamente")
