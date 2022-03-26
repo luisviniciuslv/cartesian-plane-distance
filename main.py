@@ -2,7 +2,6 @@ import os
 import math
 import re
 from pylab import *
-from matplotlib.widgets import Button
 
 while True:
     while True:
@@ -19,6 +18,7 @@ while True:
                 break
             except:
                 print('Valor invalido!')
+
     while True:
         Ay= input("Valor Y do ponto A: ")
         cAy = Ay
@@ -64,15 +64,11 @@ while True:
             except:
                 print('Valor invalido!')
 
-
-    
     X = ax - bx
     Y = ay - by
     X = X**2
     Y = Y**2
-
     Distance = X + Y
-
 
     try:
         Distance = math.sqrt(Distance)
@@ -85,7 +81,6 @@ while True:
         os.system('cls')
         
     except:
-        # os.system('cls')
         print(f"Falha ao tentar calcular, tente novamente")
         input("pressione qualquer tecla para um novo calculo")
         os.system('cls')
